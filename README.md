@@ -8,8 +8,11 @@
 <hr>
 
 ```git clone https://github.com/nissy-code/2023-07_Hackathon.git```
+
 ```cd virtual_namecard```
+
 ```npm install react react-dom react-router-dom```
+
 ```npm run```
 
 ```npm run``` で, 自分のPCでReactのページを確認できる.
