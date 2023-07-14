@@ -5,14 +5,15 @@ import { useLocation } from 'react-router-dom';
 
 const Result = () => {
   const location = useLocation();
-  const { schoolCompany, name, website, twitter, github, message } = location.state;
+  const { state } = location;
+  const { schoolCompany, name, website, twitter, github, message } = state || {};
 
   return (
     <div>
-      <h2>プレビュー</h2>
+      <h2>結果</h2>
       <p>学校名/会社名: {schoolCompany}</p>
       <p>お名前: {name}</p>
-      <p>個人ページ: {website}</p>
+      <p>Website: {website}</p>
       <p>Twitter: {twitter}</p>
       <p>GitHub: {github}</p>
       <p>一言: {message}</p>

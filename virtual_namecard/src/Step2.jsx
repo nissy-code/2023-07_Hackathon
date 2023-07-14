@@ -10,7 +10,13 @@ const Step2 = () => {
   const navigate = useNavigate();
 
   const handleNext = () => {
-    navigate('/step3', { state: { website, twitter, github } });
+    navigate('/step3', {
+      state: {
+        website,
+        twitter,
+        github
+      }
+    });
   };
 
   const handleBack = () => {
@@ -19,25 +25,10 @@ const Step2 = () => {
 
   return (
     <div>
-      <h2>個人ページやSNSのリンクを入力してください</h2>
-      <input
-        type="text"
-        value={website}
-        onChange={(e) => setWebsite(e.target.value)}
-        placeholder="個人ページのURL"
-      />
-      <input
-        type="text"
-        value={twitter}
-        onChange={(e) => setTwitter(e.target.value)}
-        placeholder="Twitterのアカウント名"
-      />
-      <input
-        type="text"
-        value={github}
-        onChange={(e) => setGithub(e.target.value)}
-        placeholder="GitHubのユーザ名"
-      />
+      <h2>Step 2</h2>
+      <input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="Website" />
+      <input type="text" value={twitter} onChange={(e) => setTwitter(e.target.value)} placeholder="Twitter" />
+      <input type="text" value={github} onChange={(e) => setGithub(e.target.value)} placeholder="GitHub" />
       <button onClick={handleBack}>戻る</button>
       <button onClick={handleNext}>次へ</button>
     </div>
