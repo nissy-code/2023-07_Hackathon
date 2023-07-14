@@ -8,6 +8,8 @@ import Step3 from './Step3';
 import Result from './Result';
 import Home from './Home'; // Homeコンポーネントのインポートを追加
 
+import NewHome from './NewHome'; // NewHomeコンポーネントのインポートを追加
+
 import './App.css'; // cssファイルの追加
 
 const App = () => {
@@ -17,6 +19,7 @@ const App = () => {
         <h1>バーチャル名刺作成サイト</h1>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/newhome" element={<NewHome />} />
           <Route path="/step1" element={<Step1 />} />
           <Route path="/step2" element={<Step2 />} />
           <Route path="/step3" element={<Step3 />} />
