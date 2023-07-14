@@ -1,17 +1,22 @@
 // Step2.jsx
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Step2 = () => {
+  const location = useLocation();
+
   const [website, setWebsite] = useState('');
   const [twitter, setTwitter] = useState('');
   const [github, setGithub] = useState('');
   const navigate = useNavigate();
 
   const handleNext = () => {
+    const {schoolCompany, name} = location.state;
     navigate('/step3', {
       state: {
+        schoolCompany,
+        name,
         website,
         twitter,
         github
