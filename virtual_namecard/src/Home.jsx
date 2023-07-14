@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './App.css'; // 追加
+// import './App.css'; // 追加
 
 const Home = () => {
   return (
