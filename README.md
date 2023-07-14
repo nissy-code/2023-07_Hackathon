@@ -1,6 +1,6 @@
 # バーチャル名刺作成サイト
 
-<p> Edited by nissy-code. </p>
+<p> Edited by nissy-code and soma </p>
 
 ## 構築方法
 <p> プロジェクトを作成したいディレクトリまで移動.</p>
