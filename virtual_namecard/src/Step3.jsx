@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import './App.css'; // 追加
+
 const Step3 = () => {
   const [message, setMessage] = useState('');
   const location = useLocation();
