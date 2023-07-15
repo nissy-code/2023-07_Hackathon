@@ -10,7 +10,7 @@ const Step1 = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const validateInput = () => {
-    if (schoolCompany.trim() === '' && name.trim() === '') {
+    if (schoolCompany.trim() === '' && name.trim() == '') {
       setErrorMessage('Error!!! 学校/会社名とお名前を入力してください');
       return false;
     } else if (schoolCompany.trim() === '') {

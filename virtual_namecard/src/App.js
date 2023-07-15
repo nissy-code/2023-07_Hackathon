@@ -13,7 +13,9 @@ import NewResult from './NewResult';
 import Home from './Home'; // Homeコンポーネントのインポートを追加
 import NewHome from './NewHome'; // NewHomeコンポーネントのインポートを追加
 
-import './App.css'; // cssファイルの追加
+import Hoge from './hoge';
+
+// import './App.css'; // cssファイルの追加
 
 const App = () => {
   return (
@@ -21,7 +23,8 @@ const App = () => {
       <div>
         <h1>バーチャル名刺作成サイト</h1>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<NewHome/>} />
+          <Route path="/home" element={<Home />} />
           <Route path="/newhome" element={<NewHome />} />
           <Route path="/step1" element={<Step1 />} />
           <Route path="/newstep1" element={<NewStep1 />} />
@@ -31,6 +34,7 @@ const App = () => {
           <Route path="/newstep3" element={<NewStep3 />} />
           <Route path="/result" element={<Result />} />
           <Route path="/newresult" element={<NewResult/>} />
+          <Route path="/hoge" element={<Hoge/>} />
         </Routes>
       </div>
     </Router>
