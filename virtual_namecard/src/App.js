@@ -8,6 +8,8 @@ import NewStep3 from './pages/NewStep3';
 import NewResult from './pages/NewResult';
 import NewHome from './pages/NewHome'; // NewHomeコンポーネントのインポートを追加
 
+import Image from './pages/imageUploader';
+
 import Hoge from './pages/hoge';
 
 // import './App.css'; // cssファイルの追加
@@ -26,6 +28,7 @@ const App = () => {
           <Route path="/newstep3" element={<NewStep3 />} />
           <Route path="/newresult" element={<NewResult/>} />
           <Route path="/hoge" element={<Hoge/>} />
+          <Route path="/image" element={<Image/>} />
         </Routes>
       </div>
     </Router>
