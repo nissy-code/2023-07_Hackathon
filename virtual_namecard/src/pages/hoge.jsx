@@ -1,5 +1,5 @@
 import React from 'react';
-import pic from "./data/meishi1.jpg"
+import pic from "../data/meishi1.jpg"
 
 const ImageWithText = () => {
   return (

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './App.css'; // 追加
+import './old/App.css'; // 追加
 
 const Step1 = () => {
   const [schoolCompany, setSchoolCompany] = useState('');
