@@ -26,7 +26,7 @@ const Step1 = () => {
 
   const handleNext = () => {
     if (validateInput()) {
-      navigate('/step2', {
+      navigate('/newstep2', {
         state: {
           schoolCompany,
           name

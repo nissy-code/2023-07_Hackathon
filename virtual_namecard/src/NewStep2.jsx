@@ -12,7 +12,7 @@ const Step2 = () => {
 
   const handleNext = () => {
     const { schoolCompany, name } = location.state;
-    navigate('/step3', {
+    navigate('/newstep3', {
       state: {
         schoolCompany,
         name,

@@ -8,7 +8,7 @@ const Home = () => {
         <Typography variant="h2" component="h1" gutterBottom>
           バーチャル名刺作成サイト
         </Typography>
-        <Link to="/step1" style={{ textDecoration: 'none' }}>
+        <Link to="/newstep1" style={{ textDecoration: 'none' }}>
           <Button variant="contained" color="primary" size="large">
             入力を始める
           </Button>
