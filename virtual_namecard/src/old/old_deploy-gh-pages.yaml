@@ -1,0 +1,60 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Pages
+        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        working-directory: ./virtual_namecard
+        run: npm ci
+      - name: Build
+        working-directory: ./virtual_namecard
+        run: npm run build
+        env:
+          PUBLIC_URL: /Example_App
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: built-files
+          path: ./virtual_namecard/build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Pages
+        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages
+        working-directory: ./virtual_namecard
+        run: npm run deploy
