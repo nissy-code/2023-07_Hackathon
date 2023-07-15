@@ -7,9 +7,10 @@ import NewStep1 from './NewStep1';
 import Step2 from './Step2';
 import NewStep2 from './NewStep2';
 import Step3 from './Step3';
+import NewStep3 from './NewStep3';
 import Result from './Result';
+import NewResult from './NewResult';
 import Home from './Home'; // Homeコンポーネントのインポートを追加
-
 import NewHome from './NewHome'; // NewHomeコンポーネントのインポートを追加
 
 import './App.css'; // cssファイルの追加
@@ -27,7 +28,9 @@ const App = () => {
           <Route path="/step2" element={<Step2 />} />
           <Route path="/newstep2" element={<NewStep2 />} />
           <Route path="/step3" element={<Step3 />} />
+          <Route path="/newstep3" element={<NewStep3 />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/newresult" element={<NewResult/>} />
         </Routes>
       </div>
     </Router>
