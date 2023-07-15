@@ -34,10 +34,20 @@ const Result = () => {
   }, []);
 
   const handleDownload = () => {
-    const element = cardRef.current;
+    const cardElement = cardRef.current;
+    const backgroundImage = new Image();
+    backgroundImage.src = back;
 
-    html2canvas(element)
-      .then((canvas) => {
+    html2canvas(cardElement)
+      .then((cardCanvas) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = backgroundImage.width;
+        canvas.height = backgroundImage.height;
+        const context = canvas.getContext('2d');
+
+        context.drawImage(backgroundImage, 0, 0);
+        context.drawImage(cardCanvas, 0, 0);
+
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
         link.download = 'output.png';
