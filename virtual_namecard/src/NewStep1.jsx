@@ -9,15 +9,15 @@ const Step1 = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const validateInput = () => {
-    if (schoolCompany.trim() === '' && name.trim() == '') {
-      setErrorMessage('Error!!! 学校/会社名とお名前を入力してください');
+  const validateInput = () 
+    if (schoolCompany.trim() === '' && name.trim() === '') {
+      setErrorMessage('Error 学校/会社名とお名前を入力してください');
       return false;
     } else if (schoolCompany.trim() === '') {
-      setErrorMessage('Error!!! 学校/会社名を入力してください');
+      setErrorMessage('Error 学校/会社名を入力してください');
       return false;
     } else if (name.trim() === '') {
-      setErrorMessage('Error!!! お名前を入力してください');
+      setErrorMessage('Error お名前を入力してください');
       return false;
     }
 

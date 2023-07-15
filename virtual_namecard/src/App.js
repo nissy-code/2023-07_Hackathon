@@ -23,8 +23,8 @@ const App = () => {
       <div>
         <h1>バーチャル名刺作成サイト</h1>
         <Routes>
-          <Route path="/" element={<NewHome/>} />
-          <Route path="/home" element={<Home />} />
+
+          <Route path="/" element={<NewHome />} />
           <Route path="/newhome" element={<NewHome />} />
           <Route path="/step1" element={<Step1 />} />
           <Route path="/newstep1" element={<NewStep1 />} />
