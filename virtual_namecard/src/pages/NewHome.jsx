@@ -4,7 +4,7 @@ import { Button, Container, Typography } from '@mui/material';
 
 const Home = () => {
     return (
-      <Container maxWidth="sm" sx={{ marginTop: '100px', textAlign: 'center' }}>
+      <Container maxWidth="sm" sx={{ marginTop: '10%', textAlign: 'center' }}>
         <Typography variant="h2" component="h1" gutterBottom>
           バーチャル名刺作成サイト
         </Typography>
