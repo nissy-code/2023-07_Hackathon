@@ -8,6 +8,8 @@ import NewStep3 from './pages/NewStep3';
 import NewResult from './pages/NewResult';
 import NewHome from './pages/NewHome'; // NewHomeコンポーネントのインポートを追加
 
+import Header from './pages/Header'; // headerの追加
+
 import Image from './pages/imageUploader';
 
 import Hoge from './pages/hoge';
@@ -17,10 +19,9 @@ import Hoge from './pages/hoge';
 const App = () => {
   return (
     <Router>
+      <Header />
       <div>
-        <h1>バーチャル名刺作成サイト</h1>
         <Routes>
-
           <Route path="/" element={<NewHome />} />
           <Route path="/newhome" element={<NewHome />} />
           <Route path="/newstep1" element={<NewStep1 />} />

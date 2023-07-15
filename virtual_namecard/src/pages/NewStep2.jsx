@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography, Box, Stepper, Step, StepLabel, Stack, styled } from '@mui/material';
 import { GitHub, Twitter } from '@mui/icons-material';
+import PersonIcon from '@mui/icons-material/Person';
+import LinkIcon from '@mui/icons-material/Link';
+import DescriptionIcon from '@mui/icons-material/Description';
 
-const Step2 = () => {
+const StyledStepLabel = styled(StepLabel)(({ theme }) => ({
+  '& .MuiStepLabel-iconContainer': {
+    display: 'flex',
+    alignItems: 'center',
+    paddingRight: theme.spacing(1),
+  },
+  '& .MuiStepLabel-active': {
+    color: theme.palette.primary.main,
+  },
+}));
+
+const NewStep2 = () => {
   const location = useLocation();
   const [website, setWebsite] = useState('');
   const [twitter, setTwitter] = useState('');
@@ -18,8 +32,8 @@ const Step2 = () => {
         name,
         website,
         twitter,
-        github
-      }
+        github,
+      },
     });
   };
 
@@ -28,51 +42,72 @@ const Step2 = () => {
   };
 
   return (
-    <div>
-      <Typography variant="h2" component="h2">
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10vh' }}>
+      {/* 進行状況バー */}
+      <Stepper activeStep={1} alternativeLabel sx={{ width: '100%', maxWidth: 400, marginBottom: '2rem' }}>
+        <Step>
+          <StyledStepLabel StepIconComponent={PersonIcon} />
+        </Step>
+        <Step>
+          <StyledStepLabel StepIconComponent={LinkIcon} />
+        </Step>
+        <Step>
+          <StyledStepLabel StepIconComponent={DescriptionIcon} />
+        </Step>
+      </Stepper>
+
+      {/* ステップ2のタイトル */}
+      <Typography variant="h2" component="h2" sx={{ textAlign: 'center' }}>
         Step 2
       </Typography>
+
+      {/* Websiteの入力フィールド */}
       <TextField
         label="Website"
         value={website}
         onChange={(e) => setWebsite(e.target.value)}
-        placeholder="Website"
         variant="outlined"
         margin="normal"
         fullWidth
       />
+
+      {/* Twitterの入力フィールド */}
       <TextField
         label="Twitter"
         value={twitter}
         onChange={(e) => setTwitter(e.target.value)}
-        placeholder="Twitter"
         variant="outlined"
         margin="normal"
         fullWidth
         InputProps={{
-          endAdornment: <Twitter />
+          endAdornment: <Twitter />,
         }}
       />
+
+      {/* GitHubの入力フィールド */}
       <TextField
         label="GitHub"
         value={github}
         onChange={(e) => setGithub(e.target.value)}
-        placeholder="GitHub"
         variant="outlined"
         margin="normal"
         fullWidth
         InputProps={{
-          endAdornment: <GitHub />
+          endAdornment: <GitHub />,
         }}
       />
-      <Button variant="contained" color="primary" onClick={handleBack}>
-        戻る
-      </Button>
-      <Button variant="contained" color="primary" onClick={handleNext}>
-        次へ
-      </Button>
-    </div>
+
+      {/* 戻るボタンと次へボタン */}
+      <Stack direction="row" spacing={2} sx={{ marginTop: '1rem' }}>
+        <Button variant="contained" color="primary" onClick={handleBack} sx={{ flex: 1 }}>
+          戻る
+        </Button>
+        <Button variant="contained" color="primary" onClick={handleNext} sx={{ flex: 1 }}>
+          次へ
+        </Button>
+      </Stack>
+    </Box>
   );
 };
 
-export default Step2;
+export default NewStep2;

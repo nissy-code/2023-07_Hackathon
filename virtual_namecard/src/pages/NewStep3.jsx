@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography, Box, Stepper, Step, StepLabel, Stack, styled } from '@mui/material';
+import { GitHub, Twitter } from '@mui/icons-material';
+import PersonIcon from '@mui/icons-material/Person';
+import LinkIcon from '@mui/icons-material/Link';
+import DescriptionIcon from '@mui/icons-material/Description';
 
-const Step3 = () => {
+const StyledStepLabel = styled(StepLabel)(({ theme }) => ({
+  '& .MuiStepLabel-iconContainer': {
+    display: 'flex',
+    alignItems: 'center',
+    paddingRight: theme.spacing(1),
+  },
+  '& .MuiStepLabel-active': {
+    color: theme.palette.primary.main,
+  },
+}));
+
+const NewStep3 = () => {
   const [message, setMessage] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,7 +30,7 @@ const Step3 = () => {
       website,
       twitter,
       github,
-      message
+      message,
     };
     console.log(result); // 結果を確認するための例
 
@@ -28,27 +43,46 @@ const Step3 = () => {
   };
 
   return (
-    <div>
-      <Typography variant="h2" component="h2">
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10vh' }}>
+      {/* 進行状況バー */}
+      <Stepper activeStep={2} alternativeLabel sx={{ width: '100%', maxWidth: 400, marginBottom: '2rem' }}>
+        <Step>
+          <StyledStepLabel StepIconComponent={PersonIcon} />
+        </Step>
+        <Step>
+          <StyledStepLabel StepIconComponent={LinkIcon} />
+        </Step>
+        <Step>
+          <StyledStepLabel StepIconComponent={DescriptionIcon} />
+        </Step>
+      </Stepper>
+
+      {/* ステップ3のタイトル */}
+      <Typography variant="h2" component="h2" sx={{ textAlign: 'center' }}>
         Step 3
       </Typography>
+
+      {/* 一言の入力フィールド */}
       <TextField
         label="一言"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        // placeholder="一言"
         variant="outlined"
         margin="normal"
         fullWidth
       />
-      <Button variant="contained" color="primary" onClick={handleBack}>
-        戻る
-      </Button>
-      <Button variant="contained" color="primary" onClick={handleCreate}>
-        作成
-      </Button>
-    </div>
+
+      {/* 戻るボタンと作成ボタン */}
+      <Stack direction="row" spacing={2} sx={{ marginTop: '1rem' }}>
+        <Button variant="contained" color="primary" onClick={handleBack} sx={{ flex: 1 }}>
+          戻る
+        </Button>
+        <Button variant="contained" color="primary" onClick={handleCreate} sx={{ flex: 1 }}>
+          作成
+        </Button>
+      </Stack>
+    </Box>
   );
 };
 
-export default Step3;
+export default NewStep3;
