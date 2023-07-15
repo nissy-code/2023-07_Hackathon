@@ -31,15 +31,15 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: npm install
+        run: cd virtual_namecard && npm install
       - name: Build
-        run: npm ci && npm run build
+        run: cd virtual_namecard && npm ci && npm run build
         env:
-          PUBLIC_URL: /2023-07_Hackathon
+          PUBLIC_URL: /2023-07_Hackathon/virtual_namecard
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './build'
+          path: './virtual_namecard/build'
 
   deploy:
     environment:
