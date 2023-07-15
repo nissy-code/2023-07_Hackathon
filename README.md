@@ -13,6 +13,6 @@
 
 ```npm install react react-dom react-router-dom```
 
-```npm run```
+```npm start```
 
-```npm run``` で, 自分のPCでReactのページを確認できる.
+```npm start``` で, 自分のPCでReactのページを確認できる.
