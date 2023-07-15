@@ -16,3 +16,9 @@
 ```npm start```
 
 ```npm start``` で, 自分のPCでReactのページを確認できる.
+
+### 使用技術
+- React
+- React-Router
+- MaterialUI
+- Firebase
