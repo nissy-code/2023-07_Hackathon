@@ -40,6 +40,7 @@ const NewHome = () => {
         </Button>
       </Link>
       {/* デモ用入力ボタン */}
+      <Link to="/test" style={{ textDecoration: 'none' }}></Link>
       <Button variant="outlined" color="secondary" size="large" onClick={handleDemoClick} style={{ marginTop: '1rem' }}>
         デモ用入力(通常時は使用できません...)
       </Button>
