@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, TextField, Typography, Box, Stepper, Step, StepLabel, Stack, styled } from '@mui/material';
-import { GitHub, Twitter } from '@mui/icons-material';
 import PersonIcon from '@mui/icons-material/Person';
 import LinkIcon from '@mui/icons-material/Link';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -24,6 +23,11 @@ const NewStep3 = () => {
 
   const handleCreate = () => {
     const { schoolCompany, name, website, twitter, github } = location.state;
+    const { state } = location;
+    const imageUrl = state ? state.imageUrl : ''; // location.stateが存在しない場合は空の文字列を設定
+    console.log("testです");
+    console.log(imageUrl);  // imageUrlを確認するための例
+  
     const result = {
       schoolCompany,
       name,
@@ -31,6 +35,7 @@ const NewStep3 = () => {
       twitter,
       github,
       message,
+      imageUrl, // imageUrlをNewResultに渡す
     };
     console.log(result); // 結果を確認するための例
 
