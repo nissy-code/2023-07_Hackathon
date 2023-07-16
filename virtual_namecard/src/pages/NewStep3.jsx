@@ -40,7 +40,7 @@ const NewStep3 = () => {
     console.log(result); // 結果を確認するための例
 
     // ページ遷移
-    navigate('/newresult', { state: result });
+    navigate('/test', { state: result });
   };
 
   const handleBack = () => {
