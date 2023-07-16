@@ -79,20 +79,11 @@ function ImageGenerator() {
   const { schoolCompany, name, website, twitter, github, message, imageUrl } = state || {};
   const [text, setText] = useState('');
   const [image, setImage] = useState('');
-
-  useEffect(() => {
-    if (imageUrl) {
-      setImage(imageUrl);
-    } else {
-      setImage(back);
-    }
-  }, [imageUrl]);
-
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
 
-  const handleImageChange = (event) => {
+   const handleImageChange = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
 
@@ -144,9 +135,12 @@ function ImageGenerator() {
     }
   };
 
+  useEffect(() => {
+    generateImage();
+  },[])
+
   return (
     <div>
-      <button onClick={generateImage}>Generate Image</button>
       {image && <img src={image} alt="Generated" />}
     </div>
   );
