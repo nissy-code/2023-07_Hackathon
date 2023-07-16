@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, TextField, Typography, Box, Stepper, Step, StepLabel, Stack, styled } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import LinkIcon from '@mui/icons-material/Link';
@@ -17,6 +17,7 @@ const StyledStepLabel = styled(StepLabel)(({ theme }) => ({
 }));
 
 const NewStep1 = () => {
+  const location = useLocation();               // imageURL取得用.
   const [schoolCompany, setSchoolCompany] = useState('');
   const [name, setName] = useState('');
   const navigate = useNavigate();
@@ -39,11 +40,16 @@ const NewStep1 = () => {
   };
 
   const handleNext = () => {
+    const { state } = location;
+    const imageUrl = state ? state.imageUrl : ''; // location.stateが存在しない場合は空の文字列を設定
+    console.log('handlenextのテストです');
+    console.log('checkURL : ', imageUrl); // 追加
     if (validateInput()) {
       navigate('/newstep2', {
         state: {
           schoolCompany,
           name,
+          imageUrl, // imageUrlもstateとして渡す
         },
       });
     }

@@ -2,15 +2,19 @@ import { Button, CircularProgress, Container, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import storage from "../firebase";
-import { ref, uploadBytesResumable } from "firebase/storage";
+import storage from "../firebase"; // Firebaseのstorageをimportします
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"; // getDownloadURLをimportします
 
 const ImageUploader = () => {
   const [loading, setLoading] = useState(false);
   const [isUploaded, setUploaded] = useState(false);
   const [countdown, setCountdown] = useState(5); // カウントダウンの初期値を設定します
+  const [imageUrl, setImageUrl] = useState(''); // 画像のダウンロードURLを格納するステートを追加します
 
   const navigate = useNavigate();
+
+  console.log("testです");
+  console.log(imageUrl);  // imageUrlを確認するための例
 
   const OnFileUploadToFirebase = (e) => {
     const file = e.target.files[0];
@@ -29,6 +33,11 @@ const ImageUploader = () => {
       () => {
         setLoading(false);
         setUploaded(true);
+
+        // アップロード完了後に画像のダウンロードURLを取得します
+        getDownloadURL(uploadImage.snapshot.ref).then((url) => {
+          setImageUrl(url);
+        });
       }
     );
   };
@@ -41,7 +50,12 @@ const ImageUploader = () => {
 
       // カウントダウンが0になったら次の画面に遷移します
       if (countdown === 0) {
-        navigate("/newstep1"); // step1.jsxへのパスを指定してください
+        console.log(imageUrl); // 追加
+        navigate("/newstep1", {
+          state: {
+            imageUrl
+          },
+        }); // step1.jsxへのパスを指定してください
       }
 
       return () => {
@@ -62,9 +76,14 @@ const ImageUploader = () => {
       ) : (
         <>
           {isUploaded ? (
-            <Typography variant="h6" component="h2" gutterBottom>
-              アップロード完了！{countdown}秒後に次の画面に遷移します。
-            </Typography>
+            <>
+              <Typography variant="h6" component="h2" gutterBottom>
+                アップロード完了！{countdown}秒後に次の画面に遷移します。
+              </Typography>
+              {imageUrl && (
+                <img src={imageUrl} alt="Uploaded" style={{ maxWidth: '100%', marginTop: '1rem' }} />
+              )}
+            </>
           ) : (
             <div>
               <Typography variant="h4" component="h2" gutterBottom>

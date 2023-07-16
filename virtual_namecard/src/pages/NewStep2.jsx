@@ -26,6 +26,13 @@ const NewStep2 = () => {
 
   const handleNext = () => {
     const { schoolCompany, name } = location.state;
+    const { state } = location;
+    const imageUrl = state ? state.imageUrl : ''; // location.stateが存在しない場合は空の文字列を設定
+
+    console.log("testです");
+    console.log('step2_checkURL : ' , imageUrl);  // imageUrlを確認するための例
+  
+
     navigate('/newstep3', {
       state: {
         schoolCompany,
@@ -33,6 +40,7 @@ const NewStep2 = () => {
         website,
         twitter,
         github,
+        imageUrl, // imageUrlをStep3に渡す
       },
     });
   };
