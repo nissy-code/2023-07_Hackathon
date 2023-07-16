@@ -27,9 +27,9 @@ function ImageGenerator() {
     const text = "hogehoge";
     const context = canvas.getContext('2d');
 
-    // 2. キャンバスのサイズを設定（例: 500px × 500px）
-    const canvasWidth = 500;
-    const canvasHeight = 500;
+    // 2. キャンバスのサイズを設定（例: 1600px × 900px）
+    const canvasWidth = 16000;
+    const canvasHeight = 900;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
