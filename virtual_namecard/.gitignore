@@ -19,7 +19,7 @@
 .env.test.local
 .env.production.local
 
-firebase.js
+# firebase.js
 
 ~/src/tmp.jsx
 
